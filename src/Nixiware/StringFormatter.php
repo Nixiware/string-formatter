@@ -12,8 +12,8 @@ class StringFormatter
 	 */
 	public static function format($str, $data)
 	{
-		return preg_replace_callback('#{{(\w+?)(\.(\w+?))?}}#', function($m) use ($data) {
-			return count($m) === 2 ? $data[$m[1]] : $data[$m[1]][$m[3]];
+		return preg_replace_callback('#{{(\w+?)}}#', function($m) use ($data) {
+			return $data[$m[1]];
 		}, $str);
 	}
 }
